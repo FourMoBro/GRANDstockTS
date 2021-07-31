@@ -7,3 +7,4 @@ requests
 asyncpg
 aiohttp
 polygon-api-client
+finnhub-python

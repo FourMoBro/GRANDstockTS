@@ -3,3 +3,4 @@
 /dbs
 node_modules/
 .ipynb_checkpoints
+config.py
