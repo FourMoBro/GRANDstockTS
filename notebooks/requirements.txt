@@ -2,7 +2,8 @@ jupyterlab
 neo4j
 py2neo
 alpaca_trade_api
-psycopg2
+psycopg2-binary
 requests
 asyncpg
 aiohttp
+polygon-api-client
