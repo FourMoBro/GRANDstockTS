@@ -1,5 +1,5 @@
 /venv
 .env*
-/db-data
+/dbs
 node_modules/
 .ipynb_checkpoints

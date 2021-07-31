@@ -1,0 +1,8 @@
+jupyterlab
+neo4j
+py2neo
+alpaca_trade_api
+psycopg2
+requests
+asyncpg
+aiohttp
