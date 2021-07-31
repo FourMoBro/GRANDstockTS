@@ -1,0 +1,5 @@
+/venv
+.env*
+/db-data
+node_modules/
+.ipynb_checkpoints
