@@ -8,3 +8,5 @@ asyncpg
 aiohttp
 polygon-api-client
 finnhub-python
+SQLAlchemy
+python-dotenv

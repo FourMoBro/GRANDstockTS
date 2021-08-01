@@ -24,6 +24,8 @@ services:
 
     jupyterlab:
         container_name: jupyter_gs
+        env_file:
+            - .env
         build: ./notebooks
         ports:
             - "8888:8888"

@@ -6,6 +6,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 ENV JUPYTER_ENABLE_LAB=yes
 
+
 COPY --chown=${NB_UID}:${NB_GID} . /home/jovyan/work
 WORKDIR /home/jovyan/work
 
