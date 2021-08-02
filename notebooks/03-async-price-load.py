@@ -27,7 +27,7 @@ password2 = os.environ.get("DB_PASSWORD")
 
 
 async def write_to_db(connection, params):
-    await connection.copy_records_to_table('stock_price_temp', records=params)
+    await connection.copy_records_to_table('stock_price', records=params)
 
 
 # In[ ]:
@@ -68,11 +68,11 @@ async def get_stocks():
     
     # get a connection
     async with pool.acquire() as connection:
-        stocks = await connection.fetch("SELECT * FROM stocks WHERE id IN (SELECT holding_id FROM holdings_temp)")
+        stocks = await connection.fetch("SELECT * FROM stocks WHERE id IN (SELECT holding_id FROM etf_holding WHERE etf_id = 172)")
 
         symbol_urls = {}
         for stock in stocks:
-            symbol_urls[stock['id']] = f"https://api.polygon.io/v2/aggs/ticker/{stock['symbol']}/range/1/minute/2021-06-01/2021-07-30?adjusted=true&sort=asc&limit=50000&apiKey={api_key2}"
+            symbol_urls[stock['id']] = f"https://api.polygon.io/v2/aggs/ticker/{stock['symbol']}/range/1/minute/2021-07-01/2021-07-30?adjusted=true&sort=asc&limit=50000&apiKey={api_key2}"
 
     await get_prices(pool, symbol_urls)
 

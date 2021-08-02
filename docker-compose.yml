@@ -4,7 +4,7 @@ services:
     neo4j:
         container_name: neo4j_gdb
         image: neo4j:4.3.0-enterprise
-        restart: unless-stopped
+        restart: always
         volumes: 
             - ./dbs/neo4j/data:/data
             - ./dbs/neo4j/import:/import
@@ -58,17 +58,18 @@ services:
         depends_on:
             - timescale
     
-    # app:
-    #     container_name: app
-    #     build: .
-    #     command: bash -c "alembic upgrade head && uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+    # fastgraph_app:
+    #     container_name: fastgraph
+    #     build: ./fastgraph_app
+    #     command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
     #     volumes:
-    #         - .:/app
+    #         - ./fastgraph_app:/app
     #     ports:
     #         - 8000:8000
     #     restart: always
     #     depends_on:
-    #         - db
+    #         - timescale
+    #         - neo4j
     
     redis:
         container_name: redis
