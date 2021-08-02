@@ -70,9 +70,9 @@ services:
     #     depends_on:
     #         - db
     
-    # redis:
-    #     container_name: redis
-    #     image: redis:6.2-alpine
+    redis:
+        container_name: redis
+        image: redis:6.2-alpine
     
     # celery_worker:
     #     container_name: celery_worker
