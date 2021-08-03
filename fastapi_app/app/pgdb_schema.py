@@ -7,6 +7,7 @@ class StockBase(BaseModel):
     description: Optional[str] = None
     figi: Optional[str] = None
     type: Optional[str] = None
+    url: Optional[str] = None
 
 class StockCreate(StockBase):
     pass

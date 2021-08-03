@@ -12,5 +12,6 @@ class Stock(Base):
     symbol = Column(String)
     figi = Column(String)
     type = Column(String)
+    url = Column(String)
 
     

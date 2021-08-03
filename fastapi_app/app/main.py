@@ -8,7 +8,7 @@ import models, pgdb_crud, pgdb_schema
 from pgdb_config import SessionLocal, engine
 
 
-models.Base.metadata.create_all(bind=engine)
+
 
 app = FastAPI(
     title="Stock SCreener API"
@@ -48,9 +48,9 @@ def read_stocks(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     stocks = pgdb_crud.get_stocks(db, skip=skip, limit=limit)
     return stocks
 
-@app.get("/stocks/{stock_id}", response_model=pgdb_schema.Stock)
-def read_stock(stock_id: str, db: Session = Depends(get_db)):
-    db_stock = pgdb_crud.get_stock_by_symbol(db, symbol=stock_id)
+@app.get("/stocks/{stock_symbol}", response_model=pgdb_schema.Stock)
+def read_stock(stock_symbol: str, db: Session = Depends(get_db)):
+    db_stock = pgdb_crud.get_stock_by_symbol(db, symbol=stock_symbol)
     if db_stock is None:
         raise HTTPException(status_code=404, detail="stock not found")
     return db_stock
