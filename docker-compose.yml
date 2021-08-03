@@ -58,18 +58,18 @@ services:
         depends_on:
             - timescale
     
-    # fastgraph_app:
-    #     container_name: fastgraph
-    #     build: ./fastgraph_app
-    #     command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
-    #     volumes:
-    #         - ./fastgraph_app:/app
-    #     ports:
-    #         - 8000:8000
-    #     restart: always
-    #     depends_on:
-    #         - timescale
-    #         - neo4j
+    fastapi_app:
+        container_name: fastapi
+        build: ./fastapi_app
+        command: bash -c "alembic upgrade head && uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+        volumes:
+            - ./fastapi_app/app:/app
+        ports:
+            - 8000:8000
+        restart: always
+        depends_on:
+            - timescale
+            - neo4j
     
     redis:
         container_name: redis

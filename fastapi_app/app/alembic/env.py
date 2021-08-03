@@ -9,7 +9,7 @@ import os, sys
 from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
-PG_URL2 = os.environ.get("PG_URL")
+PG_URL2 = "postgresql+psycopg2://postgres:password@timescale:5432/grandstock" #os.environ.get("PG_URL")
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

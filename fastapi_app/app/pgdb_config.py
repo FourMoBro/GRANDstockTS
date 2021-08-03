@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 
 load_dotenv(find_dotenv())
 
-PG_URL2 = os.environ.get("PG_URL")
+PG_URL2 = "postgresql+psycopg2://postgres:password@timescale:5432/grandstock" #os.environ.get("PG_URL")
 
 engine = create_engine(
     PG_URL2
